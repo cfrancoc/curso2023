@@ -6,7 +6,10 @@ Revisar también si el nombre y apellidos son correctos.
 
 | Nombre | Apellidos | Discord | Github | Instalación (SI/NO) | Git (SI/NO) |
 | -- | -- | -- | -- | -- | -- |
+
 | Isabel | Ceballos | isabel.ceballos | isabelceballosnetkia | SI | SI |
+| Toni | Gil | Toni Gil - Hilltech | 78Tonigil | SI | SI|
+| Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
 
 
 
