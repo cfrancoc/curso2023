@@ -6,6 +6,4 @@ Revisar también si el nombre y apellidos son correctos.
 
 | Nombre | Apellidos | Discord | Github | Instalación (SI/NO) | Git (SI/NO) |
 | -- | -- | -- | -- | -- | -- |
-
-
-oitro
+| Miguel | Peña | ccsmiguelangel#1174 | [ccsmiguelangel](https://github.com/ccsmiguelangel)| NO  | SI ||
