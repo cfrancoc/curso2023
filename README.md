@@ -9,4 +9,4 @@ Revisar también si el nombre y apellidos son correctos.
 
 
 oitro
-| José Ángel | Lois Pinto | jose-angel-lois | jose-angel-lois | SI |
+| José Ángel | Lois Pinto | jose-angel-lois | jose-angel-lois | SI | SI |
