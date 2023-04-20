@@ -8,5 +8,6 @@ Revisar también si el nombre y apellidos son correctos.
 | -- | -- | -- | -- | -- | -- |
 | Toni | Gil | Toni Gil - Hilltech | 78Tonigil | SI | SI|
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
+| Carlos | Franco Cifuentes | Carlos Franco#5723 | cfrancoc | SI | SI |
 
 
