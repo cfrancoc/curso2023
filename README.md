@@ -22,3 +22,4 @@ Revisar también si el nombre y apellidos son correctos.
 | Alberto | Blanco Alaber | Alberto Blanco | albertoblanco | SI | SI |
 | Dani | Forga | Vulpino | Vulpino | SI | SI |
 |Miguel Angel | Simó Francés | Miguel Angel#8253 | masimof | SI |
+| Javier | Parra Reig | jparrareig#1910 | jparrareig | SI | SI |
