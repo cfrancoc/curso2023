@@ -8,4 +8,5 @@ Revisar también si el nombre y apellidos son correctos.
 | -- | -- | -- | -- | -- | -- |
 | Toni | Gil | Toni Gil - Hilltech | 78Tonigil | SI | SI|
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
+| Alberto | Blanco Alaber | Alberto Blanco | albertoblanco | SI | SI |
 | Dani | Forga | Vulpino | Vulpino | SI | SI |
