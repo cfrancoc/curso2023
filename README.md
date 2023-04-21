@@ -19,3 +19,4 @@ Revisar también si el nombre y apellidos son correctos.
 | Miguel | Peña | ccsmiguelangel#1174 | [ccsmiguelangel](https://github.com/ccsmiguelangel)| NO  | SI |
 | Alberto | Blanco Alaber | Alberto Blanco | albertoblanco | SI | SI |
 | Dani | Forga | Vulpino | Vulpino | SI | SI |
+|Miguel Angel | Simó Francés | Miguel Angel#8253 | masimof | SI |
