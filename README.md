@@ -6,6 +6,7 @@ Revisar también si el nombre y apellidos son correctos.
 
 | Nombre | Apellidos | Discord | Github | Instalación (SI/NO) | Git (SI/NO) |
 | -- | -- | -- | -- | -- | -- |
+| Sandra | Perez Diego | Sandra Perez | SandraNetkia | SI | SI |
 | Isabel | Ceballos | isabel.ceballos | isabelceballosnetkia | SI | SI |
 |Jesús| Cuevas |JesúsCuevas|jesus cuevas (jesus.cuevas@netkia.es)|Si|Si| 
 | Toni | Gil | Toni Gil - Hilltech | 78Tonigil | SI | SI |
