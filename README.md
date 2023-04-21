@@ -9,3 +9,7 @@ Revisar también si el nombre y apellidos son correctos.
 | Toni | Gil | Toni Gil - Hilltech | 78Tonigil | SI | SI |
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
 | Juanu | Sandoval Tortosa | Juanu#3029 | JuanuSt | SI | SI |
+| Nestor | Agut Fas | Nestor Agut Fas | neshuo | SI | SI
+| Miguel | Peña | ccsmiguelangel#1174 | [ccsmiguelangel](https://github.com/ccsmiguelangel)| NO  | SI |
+| Alberto | Blanco Alaber | Alberto Blanco | albertoblanco | SI | SI |
+| Dani | Forga | Vulpino | Vulpino | SI | SI |
