@@ -10,6 +10,7 @@ Revisar también si el nombre y apellidos son correctos.
 |Jesús| Cuevas |JesúsCuevas|jesus cuevas (jesus.cuevas@netkia.es)|Si|Si| 
 | Toni | Gil | Toni Gil - Hilltech | 78Tonigil | SI | SI |
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
+| Jordi | Terol Calvo | jterolc | jterolc | SI | SI |
 | Hugo | Martínez Sánchez | Hugo Martinez | hugomartineznetkia | SI | SI |
 | Laura | Gómez Moreno | lmoreno | boxnia | SI | SI |
 | José Ángel | Lois Pinto | jose-angel-lois | jose-angel-lois | SI | SI |
