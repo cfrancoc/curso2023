@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_helpdesk"
+            name="Helpdesk"
+            sequence="999"
+        />
+
+        <menuitem
+            id="menu_helpdesk_first"
+            name="Helpdesk"
+            parent="menu_helpdesk"
+            sequence="10"
+        />
+
+        <menuitem
+            id="menu_helpdesk_first_tickets"
+            name="Tickets"
+            action="action_helpdesk_ticket"
+            parent="menu_helpdesk_first"
+            sequence="999"
+        />
+    </data>
+</odoo>

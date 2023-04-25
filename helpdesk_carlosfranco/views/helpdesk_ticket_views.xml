@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_helpdesk_ticket_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Tickets">
+                <!-- <field name="sequence" optional="handle"/> -->
+                <field name="name" />
+                <field name="date" optional="show"/>
+                <field name="date_limit" optional="hide"/>
+                <field name="user_id" />
+                <field name="assigned" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Ticket">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="new,accepted,in_progress, pending, done"/>
+                </header>
+                <sheet>
+                    <div class="oe_titile">
+                        <h1><field name="name" /></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date" />
+                            <field name="date_limit" />
+                        </group>
+                        <group>
+                            <field name="assigned" />
+                            <field name="user_id" />
+                        </group>
+                    </group>
+                </sheet>
+                
+                <notebook>    
+                    <page string="Description">
+                        <field name="description"/>
+                    </page>
+                    <page string="To Do">
+                        <field name="actions_todo"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_helpdesk_ticket" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Helpdesk Ticket Action</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
