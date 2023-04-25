@@ -11,6 +11,8 @@ class HelpdeskTicket(models.Model):
     )
     sequence = fields.Integer(
         string='Sequence',
+        default=10,
+        help="Secuencia para el orden de las incidencias."
     )
     
     description = fields.Text(
