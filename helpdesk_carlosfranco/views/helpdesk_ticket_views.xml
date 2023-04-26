@@ -6,7 +6,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Tickets">
-                <field name="sequence" optional="handle"/>
+                <field name="sequence" widget="handle"/>
                 <field name="name" />
                 <field name="date" optional="show"/>
                 <field name="date_limit" optional="hide"/>
