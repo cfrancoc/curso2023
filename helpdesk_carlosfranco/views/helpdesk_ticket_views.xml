@@ -6,6 +6,9 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Tickets">
+                <header>
+                    <button name="update_all_description" type="object" string="Update all description"/>
+                </header>
                 <field name="sequence" widget="handle"/>
                 <field name="name" />
                 <field name="date" optional="show"/>
@@ -25,6 +28,7 @@
             <form string="Ticket">
                 <header>
                     <field name="state" widget="statusbar" statusbar_visible="new,accepted,in_progress, pending, done"/>
+                    <button name="update_one_description" type="object" string="Update description"/>
                 </header>
                 <sheet>
                     <div class="oe_titile">
@@ -38,25 +42,47 @@
                         <group>
                             <field name="assigned" />
                             <field name="user_id" />
+                            <field name="tag_ids"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Actions">
+                            <!-- <button name="set_all_done" type="object" string="Set all done"/> -->
+                            <field name="action_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="state"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="name" />
+                                            </group>
+                                            <group>
+                                                <field name="state"/> 
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="To Do">
+                            <field name="actions_todo"/>
+                        </page>
+                    </notebook>
                 </sheet>
                 
-                <notebook>    
-                    <page string="Description">
-                        <field name="description"/>
-                    </page>
-                    <page string="To Do">
-                        <field name="actions_todo"/>
-                    </page>
-                </notebook>
             </form>
         </field>
     </record>
 
     <record id="action_helpdesk_ticket" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
-        <field name="name">Helpdesk Ticket Action</field>
+        <field name="name">Helpdesk Ticket</field>
         <field name="res_model">helpdesk.ticket</field>
         <field name="view_mode">tree,form</field>
     </record>

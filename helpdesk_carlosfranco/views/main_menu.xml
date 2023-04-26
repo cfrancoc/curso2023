@@ -15,9 +15,16 @@
         />
 
         <menuitem
-            id="menu_helpdesk_first_tickets"
+            id="menu_helpdesk_first_ticket"
             name="Tickets"
             action="action_helpdesk_ticket"
+            parent="menu_helpdesk_first"
+            sequence="999"
+        />
+        <menuitem
+            id="menu_helpdesk_first_ticket_tag"
+            name="Tags"
+            action="action_helpdesk_ticket_tag"
             parent="menu_helpdesk_first"
             sequence="999"
         />

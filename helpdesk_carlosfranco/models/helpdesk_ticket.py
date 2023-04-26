@@ -14,7 +14,6 @@ class HelpdeskTicket(models.Model):
         default=10,
         help="Secuencia para el orden de las incidencias."
     )
-    
     description = fields.Text(
         string='Description',
         help='Explain your problem'
@@ -28,7 +27,7 @@ class HelpdeskTicket(models.Model):
     )
     assigned = fields.Boolean(
         string='Assigned',
-        readonly=True 
+        readonly=True
     )
     actions_todo = fields.Html(
         string='Actions ToDo',
@@ -46,4 +45,26 @@ class HelpdeskTicket(models.Model):
         ],
         default='new'
     )
+    
+    tag_ids = fields.Many2many(
+        string='Tags',
+        comodel_name='helpdesk.ticket.tag',
+    )
+    
+    action_ids = fields.One2many(
+        string='Actions',
+        comodel_name='helpdesk.ticket.action',
+        inverse_name='ticket_id',
+    )    
+
+    def update_one_description(self):
+        self.ensure_one()
+        self.description += "OK"
+
+    def update_all_description(self):
+        """ all_tickets = self.env["helpdesk.ticket"].search([]) """
+        all_tickets = self.search([])
+        for record in all_tickets:
+            record.update_one_description()
+
     

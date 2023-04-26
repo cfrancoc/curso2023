@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <record id="view_helpdesk_ticket_tag_tree" model="ir.ui.view">
+        <field name="name">Helpdesk Ticket Tag</field>
+        <field name="model">helpdesk.ticket.tag</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Caption">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    
+    <record id="action_helpdesk_ticket_tag" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Helpdesk Ticket Tag</field>
+        <field name="res_model">helpdesk.ticket.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    
+</odoo>
