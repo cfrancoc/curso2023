@@ -24,7 +24,12 @@ class HelpdeskTicketAction(models.Model):
         comodel_name='helpdesk.ticket',
     )
 
-    def set_all_done(self):
+    def set_done(self):
         all_actions = self.search([])
         for record in all_actions:
             record.state = "done"
+
+    def set_todo(self):
+        all_actions = self.search([])
+        for record in all_actions:
+            record.state = "todo"

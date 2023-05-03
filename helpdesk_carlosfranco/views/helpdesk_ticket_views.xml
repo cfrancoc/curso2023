@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_helpdesk_ticket_tree" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.tree</field>
+        <field name="name">view_helpdesk_ticket.tree</field>
         <field name="model">helpdesk.ticket</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Tickets">
                 <header>
-                    <button name="update_all_description" type="object" string="Update all description"/>
+                    <button name="update_all_description" type="object"
+                        string="Update all description" />
                 </header>
-                <field name="sequence" widget="handle"/>
+                <field name="sequence" widget="handle" />
                 <field name="name" />
-                <field name="date" optional="show"/>
-                <field name="date_limit" optional="hide"/>
+                <field name="date" optional="show" />
+                <field name="date_limit" optional="hide" />
+                <field name="amount_time" widget="float_time" />
                 <field name="user_id" />
                 <field name="assigned" />
                 <field name="state" />
@@ -21,62 +23,172 @@
     </record>
 
     <record id="view_helpdesk_ticket_form" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.form</field>
+        <field name="name">view_helpdesk_ticket.form</field>
         <field name="model">helpdesk.ticket</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Ticket">
                 <header>
-                    <field name="state" widget="statusbar" statusbar_visible="new,accepted,in_progress, pending, done"/>
-                    <button name="update_one_description" type="object" string="Update description"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="new,accepted,in_progress, pending, done" />
+                    <button name="update_one_description" type="object" string="Update description" />
                 </header>
                 <sheet>
                     <div class="oe_titile">
-                        <h1><field name="name" /></h1>
+                        <h1>
+                            <field name="name" />
+                        </h1>
                     </div>
                     <group>
                         <group>
                             <field name="date" />
                             <field name="date_limit" />
+                            <field name="amount_time" />
                         </group>
                         <group>
+                            <field name="person_id" />
                             <field name="assigned" />
                             <field name="user_id" />
-                            <field name="tag_ids"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
                         </group>
                     </group>
                     <notebook>
-                        <page string="Actions">
-                            <!-- <button name="set_all_done" type="object" string="Set all done"/> -->
+                        <page string="Description" name="description">
+                            <!-- <label for="description" string="Description"/> -->
+                            <field name="description"/>
+                        </page>
+                        <page string="To Do" name="to_do">
+                            <!-- <label for="actions_todo" string="To Do"/> -->
+                            <field name="actions_todo"/>
+                        </page>
+                        <page string="Actions" name="actions">
+                            <!-- <label for="actions_todo" string="To Do"/> -->
+                            <button string="Set all as done" name="set_actions_as_done" type="object"/>
                             <field name="action_ids">
-                                <tree>
+                                <tree string="Actions">
                                     <field name="name"/>
                                     <field name="state"/>
                                 </tree>
                                 <form>
-                                    <sheet>
-                                        <group>
-                                            <group>
-                                                <field name="name" />
-                                            </group>
-                                            <group>
-                                                <field name="state"/> 
-                                            </group>
-                                        </group>
-                                    </sheet>
+                                    <button string="Set done" name="set_done" type="object" class="btn-primary"/>
+                                    <button string="Set todo" name="set_todo" type="object" class="btn-primary"/>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="state" readonly="1"/>
+                                    </group>
                                 </form>
                             </field>
                         </page>
-                        <page string="Description">
-                            <field name="description"/>
-                        </page>
-                        <page string="To Do">
-                            <field name="actions_todo"/>
-                        </page>
                     </notebook>
                 </sheet>
-                
+
             </form>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_kanban" model="ir.ui.view">
+        <field name="name">view_helpdesk_ticket.kanban</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="user_id">
+                <field name="name" />
+                <field name="date" />
+                <field name="color" />
+                <field name="user_id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''} #{lost_ribbon ? 'oe_kanban_card_ribbon' : ''} oe_kanban_global_click oe_kanban_card d-flex flex-column">
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle o-no-caret btn" role="button" data-bs-toggle="dropdown" data-bs-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Edit</a></t>
+                                    <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_content flex-grow-1">
+
+                                <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                                <ul>
+                                    <li><field name="date"/></li>
+                                </ul>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom">
+                                    <!-- <div class="oe_kanban_bottom_left">
+                                        <field name="priority" widget="priority" groups="base.group_user"/>
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div> -->
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="user_id" widget="many2one_avatar_user"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_graph" model="ir.ui.view">
+        <field name="name">view_helpdesk_ticket.graph</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph string="Tickets" type="line">
+                <field name="user_id"/>
+                <field name="amount_time" type="measure" widget="float_time"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_pivot" model="ir.ui.view">
+        <field name="name">view_helpdesk_ticket.pivot</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <pivot string="Tickets">
+                <field name="user_id" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="amount_time" type="measure" widget="float_time"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_calendar" model="ir.ui.view">
+        <field name="name">view_helpdesk_ticket.calendar</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <calendar string="Tickets" create="0" mode="month" date_start="date" color="user_id" event_limit="5">
+                <field name="name"/>
+                <field name="user_id" avatar_field="avatar_128" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_search" model="ir.ui.view">
+        <field name="name">view_helpdesk_ticket.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="name" />
+                <field name="state" />
+
+                <filter string="Assigned"
+                    name="assigned_filter"
+                    domain="[('assigned', '=', True)]" />
+                <filter string="No date"
+                    name="no_date_filter"
+                    domain="[('date', '=', False)]" />
+
+                <filter string="Date"
+                    name="date"
+                    context="{'group_by':'date'}" />
+                <filter string="User"
+                    name="user"
+                    context="{'group_by':'user_id'}" />
+            </search>
         </field>
     </record>
 
@@ -84,6 +196,6 @@
         <field name="type">ir.actions.act_window</field>
         <field name="name">Helpdesk Ticket</field>
         <field name="res_model">helpdesk.ticket</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,pivot,graph,calendar,form</field>
     </record>
 </odoo>

@@ -55,8 +55,24 @@ class HelpdeskTicket(models.Model):
         string='Actions',
         comodel_name='helpdesk.ticket.action',
         inverse_name='ticket_id',
-    )    
+    )  
+    
+    color = fields.Integer(
+        string='color',
+        default=0,
+    )
 
+    amount_time = fields.Float(
+        string='Amount Time',
+    )
+
+    person_id = fields.Many2one(
+        string='Person',
+        comodel_name='res.partner',
+        domain=[("is_company", "=", False)]
+    )
+    
+    
     def update_one_description(self):
         self.ensure_one()
         self.description += "OK"
@@ -66,5 +82,9 @@ class HelpdeskTicket(models.Model):
         all_tickets = self.search([])
         for record in all_tickets:
             record.update_one_description()
+
+    def set_actions_as_done(self):
+        self.ensure_one()
+        self.action_ids.set_done()
 
     
