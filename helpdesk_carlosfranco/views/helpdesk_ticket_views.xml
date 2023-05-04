@@ -43,12 +43,20 @@
                         <group>
                             <field name="date" />
                             <field name="date_limit" />
-                            <field name="amount_time" />
+                            <field name="amount_time" widget="float_time"/>
                         </group>
                         <group>
-                            <field name="person_id" />
-                            <field name="assigned" />
-                            <field name="user_id" />
+                            <field name="assigned"/>
+                            <field name="user_id"/>
+                            <field name="tickets_count"/>
+                            <field name="person_id"/>
+                            <field name="tag_name"/>                            
+                            <button string="Crear"
+                                name="create_tag"
+                                type="object" />
+                            <button string="Limpiar"
+                                name="clear_tags"
+                                type="object" />
                             <field name="tag_ids" widget="many2many_tags"/>
                         </group>
                     </group>
