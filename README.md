@@ -28,4 +28,5 @@ Revisar también si el nombre y apellidos son correctos.
 | Javier | Parra Reig | jparrareig#1910 | jparrareig | SI | SI |
 |David | Ivorra Torres| David Ivorra| ivorra78|SI | SI|
 | Adrián | López Diéguez | Adrián Diéguez | gitdalion | SI | SI |
+|Santiago |Marañón Piñero |SantiagoMP |SantiagoGSOL |SI | SI|
 
